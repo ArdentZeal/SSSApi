@@ -51,7 +51,7 @@
                 }
             }
         },
-        "/api/v1/askForUserPermissionAndConnectUsers": {
+        "/api/v1/rest/askForUserPermissionAndConnectUsers": {
             "get": {
                 "tags": [
                     "Authentication"
@@ -84,7 +84,7 @@
                 }
             }
         },
-        "/api/v1/oauth2Callback": {
+        "/api/v1/rest/public/oauth2Callback": {
             "get": {
                 "tags": [
                     "Authentication"
