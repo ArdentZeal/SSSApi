@@ -9,7 +9,7 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/v1/setupNewTenant": {
+        "/api/v1/odata/setupNewTenant": {
             "post": {
                 "tags": [
                     "Authentication"
@@ -134,7 +134,7 @@
                 }
             }
         },
-        "/api/v1/vendorCallback/envelopes/{envelopeVendorId}": {
+        "/api/v1/odata/vendorCallback/envelopes/{envelopeVendorId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -196,7 +196,7 @@
                 }
             }
         },
-        "/api/v1/vendorCallback/documents/{documentVendorId}": {
+        "/api/v1/odata/vendorCallback/documents/{documentVendorId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -258,7 +258,7 @@
                 }
             }
         },
-        "/api/v1/vendorCallback/recipients/{recipientVendorId}": {
+        "/api/v1/odata/vendorCallback/recipients/{recipientVendorId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -310,7 +310,7 @@
                 }
             }
         },
-        "/api/v1/vendorCallback/formFields/{formFieldVendorId}": {
+        "/api/v1/odata/vendorCallback/formFields/{formFieldVendorId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -362,7 +362,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/withDocuments": {
+        "/api/v1/odata/envelopes/withDocuments": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -432,7 +432,7 @@
                 }
             }
         },
-        "/api/v1/envelopes": {
+        "/api/v1/odata/envelopes": {
             "get": {
                 "tags": [
                     "Envelope"
@@ -560,7 +560,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}": {
+        "/api/v1/odata/envelopes/{envelopeAllId}": {
             "get": {
                 "tags": [
                     "Envelope"
@@ -764,7 +764,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/send": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/send": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -830,7 +830,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/views/sender": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/views/sender": {
             "get": {
                 "tags": [
                     "Envelope"
@@ -888,7 +888,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/views/details": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/views/details": {
             "get": {
                 "tags": [
                     "Envelope"
@@ -946,7 +946,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/documents/bulk": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/documents/bulk": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1038,7 +1038,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/documents": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/documents": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1196,7 +1196,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/documents/{documentAllId}": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/documents/{documentAllId}": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1344,7 +1344,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/recipients/bulk": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/recipients/bulk": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1424,7 +1424,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/recipients": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/recipients": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1563,7 +1563,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/recipients/{recipientAllId}": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/recipients/{recipientAllId}": {
             "delete": {
                 "tags": [
                     "Envelope"
@@ -1647,7 +1647,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/formFields/bulk": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/formFields/bulk": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1729,7 +1729,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/formFields": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/formFields": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -1872,7 +1872,7 @@
                 }
             }
         },
-        "/api/v1/envelopes/{envelopeAllId}/formFields/{formFieldAllId}": {
+        "/api/v1/odata/envelopes/{envelopeAllId}/formFields/{formFieldAllId}": {
             "delete": {
                 "tags": [
                     "Envelope"
@@ -1956,7 +1956,7 @@
                 }
             }
         },
-        "/api/v1/documents/bulk": {
+        "/api/v1/odata/documents/bulk": {
             "post": {
                 "tags": [
                     "Document"
@@ -2030,7 +2030,7 @@
                 }
             }
         },
-        "/api/v1/documents": {
+        "/api/v1/odata/documents": {
             "get": {
                 "tags": [
                     "Document"
@@ -2163,7 +2163,7 @@
                 }
             }
         },
-        "/api/v1/documents/{documentAllId}": {
+        "/api/v1/odata/documents/{documentAllId}": {
             "get": {
                 "tags": [
                     "Document"
@@ -2370,7 +2370,7 @@
                 }
             }
         },
-        "/api/v1/documents/{documentAllId}/download": {
+        "/api/v1/odata/documents/{documentAllId}/download": {
             "get": {
                 "tags": [
                     "Document"
@@ -2423,7 +2423,7 @@
                 }
             }
         },
-        "/api/v1/documents/{documentAllId}/downloadSigned": {
+        "/api/v1/odata/documents/{documentAllId}/downloadSigned": {
             "get": {
                 "tags": [
                     "Document"
@@ -2476,7 +2476,7 @@
                 }
             }
         },
-        "/api/v1/recipients/{recipientAllId}": {
+        "/api/v1/odata/recipients/{recipientAllId}": {
             "get": {
                 "tags": [
                     "Recipient"
@@ -2592,7 +2592,7 @@
                 }
             }
         },
-        "/api/v1/formFields/{formFieldAllId}": {
+        "/api/v1/odata/formFields/{formFieldAllId}": {
             "get": {
                 "tags": [
                     "FormField"
@@ -2712,7 +2712,7 @@
                 }
             }
         },
-        "/api/v1/batch": {
+        "/api/v1/odata/batch": {
             "post": {
                 "tags": [
                     "Batch"
@@ -2760,7 +2760,7 @@
                 }
             }
         },
-        "/api/v1/native/*": {
+        "/api/v1/odata/native/*": {
             "post": {
                 "tags": [
                     "Native"
