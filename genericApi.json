@@ -134,7 +134,39 @@
                 }
             }
         },
-        "/api/v1/odata/vendorCallback/envelopes/{envelopeVendorId}": {
+        "/api/v1/odata/vendorCallback/envelopes": {
+            "get": {
+                "tags": [
+                    "VendorCallback"
+                ],
+                "summary": "POC - Get envelopes",
+                "description": "needed so vendors can exchange their envelopeVendorId with the SAP ID to update",
+                "operationId": "getEnvelopes",
+                "responses": {
+                    "200": {
+                        "description": "gets Envelopes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Envelope"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "returns a SSS server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SSSException"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/odata/vendorCallback/envelopes/{envelopeId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -146,7 +178,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/EnvelopeBodyVendorCallback"
+                                "$ref": "#/components/schemas/EnvelopeBody"
                             }
                         }
                     }
@@ -196,7 +228,39 @@
                 }
             }
         },
-        "/api/v1/odata/vendorCallback/documents/{documentVendorId}": {
+        "/api/v1/odata/vendorCallback/documents": {
+            "get": {
+                "tags": [
+                    "VendorCallback"
+                ],
+                "summary": "POC - Get documents",
+                "description": "needed so vendors can exchange their documentVendorId with the SAP ID to update",
+                "operationId": "getEnvelopes",
+                "responses": {
+                    "200": {
+                        "description": "gets Documents",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Document"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "returns a SSS server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SSSException"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/odata/vendorCallback/documents/{documentId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -208,7 +272,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/DocumentBodyVendorCallback"
+                                "$ref": "#/components/schemas/DocumentBody"
                             }
                         }
                     }
@@ -258,7 +322,39 @@
                 }
             }
         },
-        "/api/v1/odata/vendorCallback/recipients/{recipientVendorId}": {
+        "/api/v1/odata/vendorCallback/recipients": {
+            "get": {
+                "tags": [
+                    "VendorCallback"
+                ],
+                "summary": "POC - Get recipients",
+                "description": "needed so vendors can exchange their recipientVendorId with the SAP ID to update",
+                "operationId": "getRecipients",
+                "responses": {
+                    "200": {
+                        "description": "gets Recipients",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Recipient"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "returns a SSS server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SSSException"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/odata/vendorCallback/recipients/{recipientId}": {
             "put": {
                 "tags": [
                     "VendorCallback"
@@ -271,7 +367,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/RecipientBodyVendorCallback"
+                                "$ref": "#/components/schemas/RecipientBody"
                             }
                         }
                     }
@@ -310,6 +406,38 @@
                 }
             }
         },
+        "/api/v1/odata/vendorCallback/formFields": {
+            "get": {
+                "tags": [
+                    "VendorCallback"
+                ],
+                "summary": "POC - Get formFields",
+                "description": "needed so vendors can exchange their formFieldVendorId with the SAP ID to update",
+                "operationId": "getformFields",
+                "responses": {
+                    "200": {
+                        "description": "gets FormFields",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/FormField"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "returns a SSS server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SSSException"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/odata/vendorCallback/formFields/{formFieldVendorId}": {
             "put": {
                 "tags": [
@@ -322,7 +450,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/FormFieldBodyVendorCallback"
+                                "$ref": "#/components/schemas/FormFieldBody"
                             }
                         }
                     }
@@ -367,8 +495,8 @@
                 "tags": [
                     "Envelope"
                 ],
-                "summary": "POC - Creates an envelope with documents",
-                "description": "TODO: ",
+                "summary": "NOT POC - Creates an envelope with documents",
+                "description": "CAP Java can not handle file upload at the moment, so we send documents as base64 excoded text as workaround for now",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -560,7 +688,7 @@
                 }
             }
         },
-        "/api/v1/odata/envelopes/{envelopeAllId}": {
+        "/api/v1/odata/envelopes/{envelopeId}": {
             "get": {
                 "tags": [
                     "Envelope"
@@ -570,7 +698,7 @@
                 "operationId": "getEnvelope",
                 "parameters": [
                     {
-                        "name": "envelopeAllId",
+                        "name": "envelopeId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -644,7 +772,7 @@
                 "operationId": "updateEnvelope",
                 "parameters": [
                     {
-                        "name": "envelopeAllId",
+                        "name": "envelopeId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -708,7 +836,7 @@
                 "operationId": "deprecateEnvelope",
                 "parameters": [
                     {
-                        "name": "envelopeAllId",
+                        "name": "envelopeId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -764,7 +892,7 @@
                 }
             }
         },
-        "/api/v1/odata/envelopes/{envelopeAllId}/send": {
+        "/api/v1/odata/envelopes/{envelopeId}/send": {
             "post": {
                 "tags": [
                     "Envelope"
@@ -774,7 +902,7 @@
                 "operationId": "sendEnvelope",
                 "parameters": [
                     {
-                        "name": "envelopeAllId",
+                        "name": "envelopeId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -813,1206 +941,6 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/views/sender": {
-            "get": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - (DOCUSIGNSPECIFIC?) get sender view url for an envelope",
-                "description": "TODO: ",
-                "operationId": "getSenderViewUrlForEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "returns a sender view url for an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "url": {
-                                            "type": "string",
-                                            "example": "https://..."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/views/details": {
-            "get": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - (DOCUSIGNSPECIFIC?) get details view url for an envelope",
-                "description": "TODO: ",
-                "operationId": "getDetailsViewUrlForEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "returns a details view url for an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "url": {
-                                            "type": "string",
-                                            "example": "https://..."
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/documents/bulk": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Creates several documents and adds them to the envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "documents": {
-                                        "type": "array",
-                                        "items": {
-                                            "$ref": "#/components/schemas/DocumentBody"
-                                        }
-                                    },
-                                    "documentsData": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "format": "binary"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "createDocumentsInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns several documents",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Document"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/documents": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Creates a document and adds it to the envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "document": {
-                                         "$ref": "#/components/schemas/DocumentBody"
-                                    },
-                                    "documentData": {
-                                        "type": "string",
-                                        "format": "binary"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "createDocumentInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns a single Document",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Document"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Remove all documents from an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/DocumentBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "removeAllDocumentsFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "remove and return all documents from an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Document"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/documents/{documentAllId}": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Add an already created document to an envelope",
-                "description": "TODO: ",
-                "operationId": "addDocumentToEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "DOCUMENTS",
-                                "RECIPIENTS",
-                                "FORMFIELDS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "adds a specific document to an envelope and returns the envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Envelope"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Remove a document from an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/DocumentBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "removeDocumentFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "documentAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "DOCUMENTS",
-                                "RECIPIENTS",
-                                "FORMFIELDS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "removes and returns a specific document from an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Document"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/recipients/bulk": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Creates several recipients in an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/RecipientBody"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "createRecipientsInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns several Recipients",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Recipient"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/recipients": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Creates a recipient in an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RecipientBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "createRecipientInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns a single Recipient",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Recipient"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Removes all recipients from an envelope",
-                "description": "TODO: ",
-                "operationId": "removeAllRecipientsFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "removes and returns all recipients from an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Recipient"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/recipients/{recipientAllId}": {
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Remove a recipient from an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RecipientBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "removeRecipientFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "recipientAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "DOCUMENTS",
-                                "RECIPIENTS",
-                                "FORMFIELDS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "removes and returns a specific recipient from an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Recipient"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/formFields/bulk": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Creates several formFields in an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/FormFieldBody"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "createFormFieldsInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "RECIPIENTS",
-                                "DOCUMENTS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns several FormFields",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/FormField"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/formFields": {
-            "post": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Creates a formField in an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/FormFieldBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "createFormFieldInEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "RECIPIENTS",
-                                "DOCUMENTS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "creates and returns a single FormField",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/FormField"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "NOT POC - Remove all formFields from an envelope",
-                "description": "TODO: ",
-                "operationId": "removeAllFormFieldsFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "RECIPIENTS",
-                                "DOCUMENTS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "removes and returns all FormFields",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/FormField"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/envelopes/{envelopeAllId}/formFields/{formFieldAllId}": {
-            "delete": {
-                "tags": [
-                    "Envelope"
-                ],
-                "summary": "POC - Removes a formField from an envelope",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true, 
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/FormFieldBody"
-                            }
-                        }
-                    }
-                },
-                "operationId": "removeFormFieldFromEnvelope",
-                "parameters": [
-                    {
-                        "name": "envelopeAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "formFieldAllId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "RECIPIENTS",
-                                "DOCUMENTS",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "removes and returns a specific formField from an envelope",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/FormField"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "returns a SSS resource not found error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "returns a SSS server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SSSException"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/odata/documents/bulk": {
-            "post": {
-                "tags": [
-                    "Document"
-                ],
-                "summary": "NOT POC - Create several documents",
-                "description": "TODO: ",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "documents": {
-                                        "type": "array",
-                                        "items": {
-                                            "$ref": "#/components/schemas/DocumentBody"
-                                        }
-                                    },
-                                    "documentsData": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "format": "binary"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "createDocuments",
-                "parameters": [
-                    {
-                        "name": "expand",
-                        "in": "query",
-                        "schema": {
-                            "type": "string",
-                            "description": "Expand Enum",
-                            "enum": [
-                                "ENVELOPES",
-                                "USERS"
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "creates and returns several documents",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Document"
-                                    }
                                 }
                             }
                         }
@@ -2163,7 +1091,7 @@
                 }
             }
         },
-        "/api/v1/odata/documents/{documentAllId}": {
+        "/api/v1/odata/documents/{documentId}": {
             "get": {
                 "tags": [
                     "Document"
@@ -2173,7 +1101,7 @@
                 "operationId": "getDocument",
                 "parameters": [
                     {
-                        "name": "documentAllId",
+                        "name": "documentId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2254,7 +1182,7 @@
                 "operationId": "updateDocument",
                 "parameters": [
                     {
-                        "name": "documentAllId",
+                        "name": "documentId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2316,7 +1244,7 @@
                 "operationId": "deprecateDocument",
                 "parameters": [
                     {
-                        "name": "documentAllId",
+                        "name": "documentId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2370,17 +1298,17 @@
                 }
             }
         },
-        "/api/v1/odata/documents/{documentAllId}/download": {
+        "/api/v1/odata/documents/{documentId}/download": {
             "get": {
                 "tags": [
                     "Document"
                 ],
-                "summary": "POC - Download the original version of the physical document",
+                "summary": "NOT POC - Download the original version of the physical document",
                 "description": "TODO: ",
                 "operationId": "getDocument",
                 "parameters": [
                     {
-                        "name": "documentAllId",
+                        "name": "documentId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2423,17 +1351,17 @@
                 }
             }
         },
-        "/api/v1/odata/documents/{documentAllId}/downloadSigned": {
+        "/api/v1/odata/documents/{documentId}/downloadSigned": {
             "get": {
                 "tags": [
                     "Document"
                 ],
-                "summary": "POC - Download the signed version of the physical document",
+                "summary": "NOT POC - Download the signed version of the physical document",
                 "description": "TODO: ",
                 "operationId": "downloadSignedDocument",
                 "parameters": [
                     {
-                        "name": "documentAllId",
+                        "name": "documentId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2476,7 +1404,7 @@
                 }
             }
         },
-        "/api/v1/odata/recipients/{recipientAllId}": {
+        "/api/v1/odata/recipients/{recipientId}": {
             "get": {
                 "tags": [
                     "Recipient"
@@ -2486,7 +1414,7 @@
                 "operationId": "getRecipient",
                 "parameters": [
                     {
-                        "name": "recipientAllId",
+                        "name": "recipientId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2548,7 +1476,7 @@
                 "operationId": "updateRecipient",
                 "parameters": [
                     {
-                        "name": "recipientAllId",
+                        "name": "recipientId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2592,7 +1520,7 @@
                 }
             }
         },
-        "/api/v1/odata/formFields/{formFieldAllId}": {
+        "/api/v1/odata/formFields/{formFieldId}": {
             "get": {
                 "tags": [
                     "FormField"
@@ -2612,7 +1540,7 @@
                 "operationId": "getFormField",
                 "parameters": [
                     {
-                        "name": "formFieldAllId",
+                        "name": "formFieldId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2666,7 +1594,7 @@
                 "operationId": "updateFormField",
                 "parameters": [
                     {
-                        "name": "formFieldAllId",
+                        "name": "formFieldId",
                         "in": "path",
                         "required": true,
                         "schema": {
@@ -2717,7 +1645,7 @@
                 "tags": [
                     "Batch"
                 ],
-                "summary": "NOT POC - TODO: Batch any rest routes",
+                "summary": "POC - Did not play with it, but odata just offers a batch route",
                 "description": "TODO: ",
                 "operationId": "batch",
                 "parameters": [
@@ -2978,32 +1906,6 @@
                 },
                 "description": "Api Body representing an Envelope"
             },
-            "EnvelopeBodyVendorCallback": {
-                "type": "object",
-                "properties": {
-                    "deliveredAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "completedAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "declinedAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "sentAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "status": {
-                        "type": "string",
-                        "$ref": "#/components/schemas/EnvelopeStatus"
-                    }
-                },
-                "description": "Api Body representing an Envelope"
-            },
             "Document": {
                 "type": "object",
                 "properties": {
@@ -3109,16 +2011,6 @@
                         "items": {
                             "$ref": "#/components/schemas/MetadataField"
                         }
-                    }
-                },
-                "description": "Api Body representing a document"
-            },
-            "DocumentBodyVendorCallback": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "example": "Test.pdf"
                     }
                 },
                 "description": "Api Body representing a document"
@@ -3281,32 +2173,6 @@
                 },
                 "description": "Api Body representing a Recipient"
             },
-            "RecipientBodyVendorCallback": {
-                "type": "object",
-                "properties": {
-                    "sentAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "deliveredAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "signedAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "declinedAt": {
-                        "type": "integer",
-                        "format": "int64"
-                    },
-                    "status": {
-                        "type": "string",
-                        "$ref": "#/components/schemas/EnvelopeStatus"
-                    }
-                },
-                "description": "Api Body representing a Recipient"
-            },
             "FormField": {
                 "type": "object",
                 "properties": {
@@ -3455,44 +2321,6 @@
                     "documentUuid": {
                         "type": "string",
                         "example": "991a0797-0293-475b-9b01-56d60e161dd4"
-                    }
-                },
-                "description": "Api Body representing a FormField"
-            },
-            "FormFieldBodyVendorCallback": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "$ref": "#/components/schemas/FormFieldType"
-                    },
-                    "name": {
-                        "type": "string",
-                        "example": "MyFormField1"
-                    },
-                    "pageNumber": {
-                        "type": "integer",
-                        "example": "1"
-                    },
-                    "anchorString": {
-                        "type": "string",
-                        "example": "Anchor_1"
-                    },
-                    "width": {
-                        "type": "integer",
-                        "example": "100"
-                    },
-                    "height": {
-                        "type": "integer",
-                        "example": "33"
-                    },
-                    "top": {
-                        "type": "integer",
-                        "example": "10"
-                    },
-                    "left": {
-                        "type": "integer",
-                        "example": "10"
                     }
                 },
                 "description": "Api Body representing a FormField"
